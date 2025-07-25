@@ -4,9 +4,8 @@ services:
     name: calendar-backend
     runtime: node
     env: node
-    rootDir: ./server
     buildCommand: npm install
-    startCommand: npm start
+    startCommand: npm run server:start
     envVars:
       - key: NODE_ENV
         value: production
