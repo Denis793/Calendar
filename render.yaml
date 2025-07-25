@@ -26,22 +26,3 @@ services:
         value: 100
       - key: CLIENT_URL
         value: https://calendar-frontend.onrender.com
-
-  # Frontend service
-  - type: static
-    name: calendar-frontend
-    runtime: static
-    buildCommand: npm install && npm run build
-    staticPublishPath: ./dist
-    envVars:
-      - key: VITE_API_URL
-        value: https://calendar-backend.onrender.com/api
-      - key: VITE_NODE_ENV
-        value: production
-      - key: VITE_SYNC_ENABLED
-        value: true
-
-databases:
-  - name: calendar-db
-    databaseName: calendar_app
-    plan: free
