@@ -24,7 +24,19 @@ const PORT = process.env.PORT || 3001;
 
 connectDB();
 
-app.use(helmet());
+// Configure Helmet with proper CSP for production
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      connectSrc: ["'self'", "'unsafe-inline'"],
+      scriptSrc: ["'self'", "'unsafe-inline'"],
+      styleSrc: ["'self'", "'unsafe-inline'"],
+      imgSrc: ["'self'", "data:", "https:"],
+      fontSrc: ["'self'", "data:"],
+    },
+  },
+}));
 app.use(compression());
 app.use(morgan('combined'));
 
