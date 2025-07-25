@@ -20,7 +20,10 @@
     "postbuild": "echo 'Frontend build completed'",
     "deploy:frontend": "npm run build",
     "deploy:backend": "cd server && npm install && npm start",
-    "check-deployment": "node check-deployment.js"
+    "check-deployment": "node check-deployment.js",
+    "build:full": "npm install && npm run build && cd server && npm install",
+    "heroku-postbuild": "npm run build:full",
+    "test:fullstack": "node test-fullstack.js"
   },
   "dependencies": {
     "@hello-pangea/dnd": "^18.0.1",
@@ -61,6 +64,7 @@
     "@vitest/coverage-v8": "^2.1.8",
     "@vitest/ui": "^2.1.8",
     "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
     "eslint": "^9.30.0",
     "eslint-plugin-jest-dom": "^5.5.0",
     "eslint-plugin-react": "^7.37.5",

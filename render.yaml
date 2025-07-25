@@ -1,12 +1,11 @@
 services:
-  # Backend service
+  # Full-stack service (Frontend + Backend)
   - type: web
-    name: calendar-backend
+    name: calendar-app
     runtime: node
     env: node
-    rootDir: ./server
-    buildCommand: npm install
-    startCommand: npm start
+    buildCommand: npm run build:full
+    startCommand: npm run server:start
     envVars:
       - key: NODE_ENV
         value: production
@@ -24,5 +23,9 @@ services:
         value: 900000
       - key: RATE_LIMIT_MAX_REQUESTS
         value: 100
-      - key: CLIENT_URL
-        value: https://calendar-frontend.onrender.com
+      - key: VITE_API_URL
+        value: /api
+      - key: VITE_NODE_ENV
+        value: production
+      - key: VITE_SYNC_ENABLED
+        value: true
