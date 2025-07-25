@@ -21,8 +21,10 @@
     "deploy:frontend": "npm run build",
     "deploy:backend": "cd server && npm install && npm start",
     "check-deployment": "node check-deployment.js",
-    "build:full": "npm install && npm run build:simple && cd server && npm install",
+    "build:full": "npm install && npm run build:prod && cd server && npm install",
     "build:simple": "vite build",
+    "build:vite-only": "vite build --mode production",
+    "build:prod": "vite build --config vite.config.prod.ts",
     "heroku-postbuild": "npm run build:full",
     "test:fullstack": "node test-fullstack.js"
   },
