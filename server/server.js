@@ -39,9 +39,10 @@ app.use('/api/', limiter);
 
 app.use(
   cors({
-    origin: process.env.NODE_ENV === 'production' 
-      ? true  // Allow same origin in production
-      : (process.env.CLIENT_URL || 'http://localhost:5173'),
+    origin:
+      process.env.NODE_ENV === 'production'
+        ? true // Allow same origin in production
+        : process.env.CLIENT_URL || 'http://localhost:5173',
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
@@ -106,7 +107,7 @@ app.get('/api/debug/events', async (req, res) => {
 if (process.env.NODE_ENV === 'production') {
   // Serve static files from React build
   app.use(express.static(join(__dirname, '..', 'dist')));
-  
+
   // Handle React routing, return all requests to React app
   app.get('*', (req, res) => {
     res.sendFile(join(__dirname, '..', 'dist', 'index.html'));
