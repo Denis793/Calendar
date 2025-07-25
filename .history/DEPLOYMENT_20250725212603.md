@@ -1,0 +1,122 @@
+# Deployment Guide for Render.com
+
+## Підготовка до деплою
+
+### 1. Створення Git репозиторію
+Якщо ваш проєкт ще не в Git репозиторії:
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin <your-github-repo-url>
+git push -u origin main
+```
+
+### 2. Створення MongoDB Atlas Database (рекомендується)
+1. Зайдіть на https://www.mongodb.com/atlas
+2. Створіть безкоштовний кластер
+3. Налаштуйте користувача бази даних
+4. Отримайте connection string
+
+## Варіанти деплою на Render.com
+
+### Варіант 1: Автоматичний деплой з render.yaml (Рекомендується)
+
+1. **Підключіть репозиторій:**
+   - Зайдіть на https://render.com
+   - Створіть аккаунт або увійдіть
+   - Натисніть "New" → "Blueprint"
+   - Підключіть ваш GitHub репозиторій
+   - Render автоматично знайде `render.yaml` файл
+
+2. **Налаштуйте змінні середовища:**
+   - MongoDB URI буде налаштований автоматично
+   - JWT_SECRET буде згенерований автоматично
+   - Переконайтеся, що URL сервісів співпадають з вашими доменами
+
+### Варіант 2: Ручне створення сервісів
+
+#### Backend Service:
+1. **Створіть Web Service:**
+   - Repository: ваш GitHub репозиторій
+   - Branch: main
+   - Root Directory: `server`
+   - Runtime: Node
+   - Build Command: `npm install`
+   - Start Command: `npm start`
+
+2. **Налаштуйте Environment Variables:**
+   ```
+   NODE_ENV=production
+   PORT=10000
+   MONGODB_URI=<your-mongodb-connection-string>
+   JWT_SECRET=<generate-secure-secret>
+   JWT_EXPIRE=30d
+   JWT_COOKIE_EXPIRE=30
+   CLIENT_URL=<your-frontend-url>
+   ```
+
+#### Frontend Service:
+1. **Створіть Static Site:**
+   - Repository: ваш GitHub репозиторій  
+   - Branch: main
+   - Build Command: `npm install && npm run build`
+   - Publish Directory: `dist`
+
+2. **Налаштуйте Environment Variables:**
+   ```
+   VITE_API_URL=<your-backend-url>/api
+   VITE_NODE_ENV=production
+   VITE_SYNC_ENABLED=true
+   ```
+
+## Важливі налаштування
+
+### 1. CORS
+Переконайтеся, що в backend налаштований правильний CORS з URL вашого frontend:
+```javascript
+cors({
+  origin: process.env.CLIENT_URL || 'https://your-frontend-domain.onrender.com',
+  credentials: true
+})
+```
+
+### 2. Environment Variables
+- Ніколи не commitьте `.env` файли з реальними секретами
+- Використовуйте Render Dashboard для налаштування змінних середовища
+- MongoDB URI повинен бути з Atlas або іншого cloud провайдера
+
+### 3. Database Initialization
+Після деплою backend, ініціалізуйте базу даних:
+```bash
+# Це можна зробити через Render Shell або локально
+npm run server:init-db
+```
+
+## Troubleshooting
+
+### Проблеми з Build:
+- Переконайтеся, що всі dependencies є в package.json
+- Перевірте Node.js версію (рекомендується 18+)
+- Перевірте TypeScript конфігурацію
+
+### Проблеми з API:
+- Перевірте CORS налаштування
+- Переконайтеся, що MongoDB connection string правильний
+- Перевірте Environment Variables
+
+### Проблеми з Frontend:
+- Переконайтеся, що VITE_API_URL вказує на правильний backend URL
+- Перевірте налаштування роутингу для SPA
+
+## Моніторинг та логи
+- Використовуйте Render Dashboard для перегляду логів
+- Налаштуйте Health Check endpoints
+- Моніторьте використання ресурсів
+
+## Безпека
+- Використовуйте HTTPS для всіх з'єднань
+- Налаштуйте rate limiting
+- Використовуйте strong JWT secrets
+- Регулярно оновлюйте dependencies

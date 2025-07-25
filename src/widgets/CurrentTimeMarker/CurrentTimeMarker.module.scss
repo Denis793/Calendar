@@ -1,0 +1,48 @@
+.currentTimeLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #ff4444;
+  z-index: 99990;
+  box-shadow: 0 0 4px rgba(255, 68, 68, 0.5);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.currentTimeCircle {
+  position: absolute;
+  left: -6px;
+  top: -4px;
+  width: 10px;
+  height: 10px;
+  background-color: #ff4444;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 4px rgba(255, 68, 68, 0.5);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.currentTimeText {
+  position: absolute;
+  right: 8px;
+  top: -8px;
+  font-size: 12px;
+  color: #ff4444;
+  font-weight: bold;
+  background-color: white;
+  padding: 2px 4px;
+  border-radius: 4px;
+  border: 1px solid #ff4444;
+  white-space: nowrap;
+  user-select: none;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}

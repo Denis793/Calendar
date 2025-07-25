@@ -1,0 +1,46 @@
+@use '@/styles/variables' as *;
+
+.header {
+  background: var(--background-color-light);
+  box-shadow: var(--shadow-medium);
+  padding: var(--spacing-sm);
+}
+
+.logo,
+.headerContent,
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.headerWrapper {
+  justify-content: space-between;
+}
+
+.logoTitle {
+  font-size: var(--font-size-m);
+  font-weight: 600;
+  margin: 0;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+}
+
+.currentDate {
+  padding: var(--spacing-sm);
+  font-size: var(--font-size-m);
+  font-weight: 700;
+}
+
+.button {
+  padding: var(--spacing-xxs) var(--spacing-sm);
+  align-items: center;
+}
+
+.user {
+  margin-left: var(--spacing-xl);
+  font-size: var(--font-size-s);
+}

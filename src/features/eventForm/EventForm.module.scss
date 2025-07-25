@@ -1,0 +1,98 @@
+@use '@/styles/variables' as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.formRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--spacing-xxs);
+  position: relative;
+}
+
+.label {
+  font-size: var(--font-size-base);
+  color: var(--input-label-color);
+  font-weight: 600;
+}
+
+.datePreview,
+.colorPreview {
+  width: 100%;
+  height: 3rem;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  font-size: var(--font-size-m);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: border-color 0.2s;
+
+  &:hover {
+    border-color: var(--primary-btn-hover-bg);
+  }
+}
+
+.datePreview {
+  color: var(--text-color);
+  border-bottom: 1px solid var(--input-default-border-bottom);
+}
+
+.colorPreview {
+  border-radius: var(--border-radius-sm);
+}
+
+.timeGroup {
+  display: flex;
+  align-items: center;
+}
+
+.selectMenu {
+  border-bottom: 1px solid #000;
+}
+
+.checkboxSection {
+  display: flex;
+  align-items: center;
+  margin-left: var(--spacing-lg);
+}
+
+.checkboxLabel {
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  margin: 0 var(--spacing-md);
+  font-weight: 500;
+}
+
+.colorPickerWrapper {
+  position: relative;
+  display: flex;
+  align-self: flex-end;
+  flex-direction: column;
+  gap: var(--spacing-xxs);
+  width: 2.3rem;
+  height: 2.3rem;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dateModal {
+  display: flex;
+}

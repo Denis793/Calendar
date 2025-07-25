@@ -1,0 +1,27 @@
+@use './variables' as *;
+
+.appLayout {
+  background: var(--background-color);
+  min-height: 100vh;
+  height: 100%;
+}
+
+.mainContent {
+  display: flex;
+  margin: var(--content-padding-x) 0;
+}
+
+.icon {
+  cursor: pointer;
+  width: 1.25rem;
+  height: 1.25rem;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.icon :hover {
+  background: var(--primary-btn-hover-bg);
+}

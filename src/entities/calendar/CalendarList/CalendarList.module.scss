@@ -1,0 +1,183 @@
+.calendarListContainer {
+  background: var(--background-color-light);
+  margin: 1rem 0;
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-sm);
+}
+
+.calendarListHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-m);
+  padding-bottom: var(--spacing-s);
+
+  h4 {
+    margin: 0;
+    font-size: var(--font-size-m);
+    color: var(--text-color);
+    font-weight: 600;
+  }
+}
+
+.calendarList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.calendarItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  transition: all 0.2s ease;
+}
+
+.calendarName {
+  flex: 1;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--primary-btn-default-bg);
+  }
+}
+
+.activeIndicator {
+  font-size: var(--font-size-xs);
+  color: var(--primary-btn-default-bg);
+  font-weight: 600;
+}
+
+.eventCount {
+  font-size: var(--font-size-xs);
+  color: var(--text-color-secondary);
+  margin-left: auto;
+  margin-right: var(--spacing-xs);
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-xxs);
+}
+
+.calendarListDescription {
+  color: var(--text-color-secondary);
+  font-style: italic;
+  text-align: center;
+  margin: var(--spacing-l) 0;
+}
+
+// Modal styles
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-large);
+  width: 90%;
+  max-width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-m);
+  border-bottom: 1px solid var(--border-color);
+
+  h3 {
+    margin: 0;
+    font-size: var(--font-size-l);
+    color: var(--text-color);
+  }
+}
+
+.closeButton {
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  border-radius: var(--border-radius-sm);
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+.modalForm {
+  padding: var(--spacing-m);
+}
+
+.formGroup {
+  margin-bottom: var(--spacing-m);
+
+  label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+    color: var(--text-color);
+  }
+}
+
+.colorPicker {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-xs);
+}
+
+.colorOption {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &.selected {
+    border-color: var(--text-color);
+    transform: scale(1.2);
+  }
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: var(--spacing-l);
+  padding-top: var(--spacing-m);
+  border-top: 1px solid var(--border-color);
+}
+
+.deleteModalContent {
+  font-size: var(--font-size-base);
+  text-align: center;
+
+  color: var(--text-color);
+}
+
+.deleteDescription {
+  padding-bottom: var(--spacing-sm);
+}
+
+.deleteModalActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

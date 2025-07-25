@@ -1,0 +1,35 @@
+.calendarForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  padding: var(--spacing-m);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.createInfo {
+  padding: var(--spacing-s);
+  background-color: var(--background-color-info);
+  border-radius: var(--border-radius-sm);
+  border-left: 4px solid var(--color-primary);
+}
+
+.infoText {
+  margin: 0;
+  font-size: var(--font-size-s);
+  color: var(--text-color-secondary);
+  line-height: 1.4;
+}
+
+.formActions {
+  display: flex;
+  gap: var(--spacing-s);
+  justify-content: flex-end;
+  margin-top: var(--spacing-m);
+  padding-top: var(--spacing-m);
+  border-top: 1px solid var(--border-color);
+}

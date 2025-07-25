@@ -1,0 +1,28 @@
+@use '../../styles/variables' as *;
+
+.link {
+  color: var(--link-text);
+  text-decoration: var(--link-default-underline);
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: color 0.2s, text-decoration 0.2s;
+}
+
+.link:hover,
+.hover {
+  color: var(--link-hover-text);
+  text-decoration: var(--link-hover-underline);
+}
+
+.link:active,
+.pressed {
+  color: var(--link-pressed-text);
+  text-decoration: var(--link-pressed-underline);
+}
+
+.disabled {
+  color: var(--link-disabled-text);
+  pointer-events: none;
+  cursor: not-allowed;
+  text-decoration: var(--link-disabled-underline);
+}

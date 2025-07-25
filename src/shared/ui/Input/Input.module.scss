@@ -1,0 +1,38 @@
+@use '@/styles/variables' as *;
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.input {
+  width: 100%;
+  font-size: var(--font-size-m);
+  border: none;
+  border-bottom: 1px solid var(--input-default-border-bottom);
+  background: #fff;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--input-active-border-bottom);
+}
+
+.errorBorder {
+  @extend .input;
+  border-color: var(--input-error-border-bottom);
+}
+
+.error {
+  color: var(--error-text-color);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}

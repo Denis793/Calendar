@@ -1,0 +1,104 @@
+@use '@/styles/variables' as *;
+
+.event {
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  z-index: var(--event-z-index, 1000);
+  font-size: var(--font-size-s);
+  line-height: 1.4;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-left: 8px solid;
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-xs);
+  color: var(--primary-btn-text);
+  font-family: var(--main-font);
+  box-shadow: var(--shadow-small);
+  min-height: 2.5rem;
+  user-select: none;
+  cursor: pointer;
+  backdrop-filter: blur(1px);
+  pointer-events: all;
+
+  &:hover {
+    transform: translateY(-2px) scale(1.02);
+    z-index: 99999;
+    filter: brightness(1.1) saturate(1.1);
+    box-shadow: var(--shadow-large);
+  }
+
+  &:active {
+    transform: translateY(0) scale(1);
+    transition: all 0.1s ease;
+  }
+}
+
+.event.dragging {
+  transition: none;
+  box-shadow: var(--shadow-medium);
+  opacity: 0.95;
+}
+
+.eventTitle {
+  margin-bottom: var(--spacing-xxs);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: var(--font-size-s);
+  color: inherit;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.eventTime {
+  font-size: var(--font-size-xs);
+  opacity: 0.95;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: inherit;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.15);
+  padding: 2px var(--spacing-xxs);
+  border-radius: var(--border-radius-sm);
+  display: inline-block;
+  line-height: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.event.newEvent {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.resizeHandleTop,
+.resizeHandleBottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 6px;
+  opacity: 0.6;
+  z-index: 10001;
+  cursor: ns-resize;
+  transition: background 0.2s;
+}
+
+.resizeHandleBottom {
+  bottom: 0;
+}
+
+.resizeHandleTop {
+  top: 0;
+}

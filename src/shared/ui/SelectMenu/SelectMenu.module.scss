@@ -1,0 +1,80 @@
+@use '@/styles/variables' as *;
+
+.selectMenu {
+  position: relative;
+  width: fit-content;
+}
+
+.label {
+  font-size: var(--font-size-base);
+  color: #666;
+  margin-bottom: 2px;
+  display: block;
+}
+
+.control {
+  width: 7rem;
+  height: 40px;
+  border-radius: 4px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border 0.2s;
+  outline: none;
+}
+
+.selectedOption {
+  font-size: var(--font-size-m);
+}
+.control:focus {
+  border-color: #dee0e5;
+}
+
+.arrow {
+  margin-left: 8px;
+  font-size: 1rem;
+  color: #888;
+}
+
+.menu {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  top: 4rem;
+  right: 0%;
+  background: #fff;
+  border: 1px solid #dedede;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 16px rgba(60, 60, 60, 0.1);
+  z-index: 10;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  overflow-y: auto;
+}
+
+.item {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-family: var(--main-font);
+  cursor: pointer;
+  background: #fff;
+  transition: background 0.15s;
+  width: 4rem;
+}
+
+.item:hover,
+.hovered {
+  background: #f6f6f6;
+}
+
+.selected {
+  background: #dcdcdc;
+  font-weight: 500;
+}

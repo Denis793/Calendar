@@ -1,0 +1,90 @@
+:root {
+  /* Fonts */
+  --main-font: 'Inter', sans-serif;
+  --font-size-s: 0.7rem;
+  --font-size-base: 1rem;
+  --font-size-m: 1.2rem;
+  --font-size-l: 1.6rem;
+  --font-size-xl: 2rem;
+  --font-size-xxl: 2.5rem;
+
+  // Text
+  --text-color: #333333;
+  --text-inactive-color: #ccc;
+  --text-color-secondary: #666666;
+
+  // Button
+  --btn-hover-bg: #0097ae;
+  --btn-hover-text: #fff;
+  --primary-btn-text: #fff;
+  --primary-btn-default-bg: #00ae1c;
+  --primary-btn-hover-bg: #0097ae;
+  --primary-btn-pressed-bg: #0cd52b;
+
+  --secondary-btn-text: #000000;
+  --secondary-btn-default-bg: #fff;
+  --secondary-btn-hover-bg: #0097ae;
+  --secondary-btn-pressed-bg: #ccc;
+
+  // Input
+  --input-default-border-bottom: #626262;
+  --input-active-border-bottom: #000000;
+  --input-error-border-bottom: #d32f2f;
+  --input-disabled-color: #949494;
+  --input-label-color: #323749;
+
+  // Checkbox
+  --checkbox-border-color: #ccc;
+  --checkbox-color: #01862d;
+  --input-checked-color: #f1f1f1;
+
+  --success-color: #28a745;
+  --info-color: #17a2b8;
+  --share-color: #6366f1;
+
+  --background-color: #f1f1f1;
+  --background-color-light: #ffffff;
+  --icon-color: #6c757d;
+
+  /* Indents and spacing */
+  --spacing-xxs: 0.4rem;
+  --spacing-xs: 0.7rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Shadows */
+  --shadow-small: 0 3px 3px rgba(0, 0, 0, 0.12);
+  --shadow-medium: 0 0px 10px rgba(0, 0, 0, 0.16);
+  --shadow-large: 0 0px 28px rgba(0, 0, 0, 0.25);
+  --shadow-button: 0 0px 15px rgba(0, 0, 0, 0.25);
+
+  /* Transitions and animations */
+  --transition-fast: 0.15s ease;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Border */
+  --border-radius-sm: 0.5rem;
+  --border-radius-md: 0.8rem;
+  --border-radius-lg: 1.2rem;
+  --border-radius-circle: 50%;
+  --border-color: #17a2b8;
+  --border-grid-color: #ececec;
+
+  /* Content width restrictions and padding */
+  --content-max-width: 120rem;
+  --content-padding-x: 2rem;
+
+  // Calendar layout
+  --calendar-time-column-width: 5rem;
+  --calendar-time-column-width-tablet: 6rem;
+  --calendar-time-column-width-mobile: 5rem;
+  --calendar-hour-height: 4rem;
+  --calendar-hour-height-tablet: 3.5rem;
+  --calendar-hour-height-mobile: 3rem;
+
+  // Today cell
+  --today-cell-bg: #00dd0b09;
+}

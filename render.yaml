@@ -1,0 +1,48 @@
+services:
+  # Backend service
+  - type: web
+    name: calendar-backend
+    runtime: node
+    env: node
+    buildCommand: npm install
+    startCommand: npm run server:start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGODB_URI
+        fromDatabase:
+          name: calendar-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRE
+        value: 30d
+      - key: JWT_COOKIE_EXPIRE
+        value: 30
+      - key: RATE_LIMIT_WINDOW_MS
+        value: 900000
+      - key: RATE_LIMIT_MAX_REQUESTS
+        value: 100
+      - key: CLIENT_URL
+        value: https://calendar-frontend.onrender.com
+
+  # Frontend service
+  - type: static
+    name: calendar-frontend
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://calendar-backend.onrender.com/api
+      - key: VITE_NODE_ENV
+        value: production
+      - key: VITE_SYNC_ENABLED
+        value: true
+
+databases:
+  - name: calendar-db
+    databaseName: calendar_app
+    plan: free

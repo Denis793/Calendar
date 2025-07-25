@@ -1,0 +1,83 @@
+@use '@/styles/variables' as *;
+
+.button {
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  border-radius: 0.4rem;
+  font-size: var(--font-size-m);
+  font-weight: 400;
+  box-shadow: var(--shadow-button);
+  position: relative;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.iconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.primary {
+  background: var(--primary-btn-default-bg);
+  color: white;
+}
+
+.primaryHover,
+.primary:hover {
+  background: var(--primary-btn-hover-bg);
+}
+
+.primaryPressed,
+.primary:active {
+  background: var(--primary-btn-pressed-bg);
+}
+
+.primary:disabled,
+.primary[disabled] {
+  background: var(--primary-btn-disabled-bg);
+  color: var(--btn-disabled-text);
+}
+
+.secondary {
+  color: black;
+  background: var(--secondary-btn-default-bg);
+}
+
+.secondaryHover,
+.secondary:hover {
+  background: var(--secondary-btn-hover-bg);
+}
+
+.secondaryPressed,
+.secondary:active {
+  background: var(--secondary-btn-pressed-bg);
+}
+
+.secondary:disabled,
+.secondary[disabled] {
+  background: var(--secondary-btn-disabled-bg);
+  color: var(--btn-disabled-text);
+  opacity: 1;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+}
+
+.iconColor-primary {
+  color: white;
+  fill: white;
+}
+
+.iconColor-secondary {
+  color: black;
+  fill: black;
+}

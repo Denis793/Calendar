@@ -1,0 +1,60 @@
+@use '@/styles/variables' as *;
+
+.eventTitle {
+  font-size: var(--font-size-l);
+  font-weight: 600;
+  color: var(--text-color);
+  font-family: var(--main-font);
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.eventDate {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--text-color);
+  font-family: var(--main-font);
+}
+
+.eventTime {
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  font-family: var(--main-font);
+  margin: var(--spacing-xxs) 0;
+}
+
+.eventRecurrence {
+  font-size: var(--font-size-s);
+  color: var(--text-color-secondary);
+  font-style: italic;
+  font-family: var(--main-font);
+}
+
+.eventDescription {
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  line-height: 1.5;
+  font-family: var(--main-font);
+  word-wrap: break-word;
+}
+
+.calendarInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.calendarColor {
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--border-radius-sm);
+  border: none;
+  flex-shrink: 0;
+}
+
+.calendarName {
+  font-size: var(--font-size-base);
+  color: var(--text-color);
+  font-family: var(--main-font);
+  font-weight: 500;
+}

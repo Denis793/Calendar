@@ -1,0 +1,103 @@
+@use '@/styles/variables' as *;
+
+.container {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999999;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 2rem 4rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);
+  width: fit-content;
+  color: #374151;
+  font-size: 1rem;
+  z-index: 20001;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.toastMessage {
+  margin-right: 1rem;
+  font-weight: 500;
+}
+
+.closeIcon {
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+  color: #6b7280;
+  outline: none;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #374151;
+  }
+
+  &:focus {
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+    color: #374151;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+}
+
+/* Анімації для Toast */
+.show {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.hide {
+  animation: slideOutRight 0.3s ease-in;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(-50%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .container {
+    top: 20px;
+    left: 10px;
+    right: 10px;
+    transform: none;
+  }
+
+  .toast {
+    padding: 1.5rem 2rem;
+    font-size: 0.9rem;
+  }
+}

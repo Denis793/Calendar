@@ -1,0 +1,120 @@
+@use '@/styles/variables' as *;
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  backdrop-filter: blur(2px);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  background: var(--background-color-light);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-large);
+  padding: 0;
+  max-height: 90vh;
+  overflow: hidden;
+  animation: modalAppear 0.3s ease-out;
+}
+
+@keyframes modalAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.modal--small {
+  max-width: 400px;
+  width: 90vw;
+}
+
+.modal--medium {
+  max-width: 500px;
+  width: 90vw;
+}
+
+.modal--large {
+  max-width: 800px;
+  width: 95vw;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid var(--border-grid-color);
+  background-color: var(--background-color-light);
+}
+
+.modalTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+  font-family: var(--main-font);
+}
+
+.modalActions {
+  display: flex;
+  gap: var(--spacing-xs);
+  align-items: center;
+}
+
+.modalExtraActions {
+  border: none;
+  display: contents;
+}
+
+/* Content */
+.modalContent {
+  padding: var(--spacing-md);
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Field */
+.modalField {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) 0;
+}
+
+.modalFieldIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--border-radius-sm);
+  color: var(--text-color-secondary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.modalFieldIcon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.modalFieldContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxs);
+}

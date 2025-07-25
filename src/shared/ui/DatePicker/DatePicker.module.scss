@@ -1,0 +1,122 @@
+@use '@/styles/variables' as *;
+
+.datePicker {
+  background-color: var(--background-color-light);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-medium);
+  padding: var(--spacing-sm);
+  width: 16rem;
+  display: inline-block;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+  font-weight: var(--font-weight-semibold);
+  transition: var(--transition-duration-fast);
+}
+
+.titleMonths {
+  font-size: var(--font-size-s);
+  font-weight: 600;
+}
+
+.controlSection .arrow {
+  width: 2rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+.daysRow,
+.weekRow {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.dayLabel {
+  text-align: center;
+  font-size: var(--font-size-s);
+  font-weight: 300;
+  padding-bottom: var(--spacing-xs);
+}
+
+.cell {
+  text-align: center;
+  padding: var(--spacing-xxs) 0;
+  font-size: var(--font-size-s);
+  border-radius: var(--border-radius-sm);
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--secondary-btn-text);
+  transition: background-color 0.2s ease;
+}
+
+.cell:hover,
+.selected {
+  background-color: var(--primary-btn-default-bg);
+  color: var(--primary-btn-text);
+}
+
+.inactive {
+  color: var(--text-inactive-color);
+}
+
+.disabled {
+  cursor: not-allowed;
+  color: var(--text-inactive-color) ;
+  background-color: var(--background-color-light) ;
+  opacity: 0.5;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background-color: var(--text-inactive-color);
+    transform: translateY(-50%);
+  }
+
+  &:hover {
+    background-color: var(--background-color-light) ;
+    color: var(--text-inactive-color) ;
+  }
+}
+
+.past {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.occupied {
+  position: relative;
+  background-color: rgba(255, 193, 7, 0.2) ;
+  border: 1px solid rgba(255, 193, 7, 0.5);
+
+  &:hover {
+    background-color: rgba(255, 193, 7, 0.3) ;
+  }
+}
+
+.occupiedDot {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 6px;
+  height: 6px;
+  background-color: #ffc107;
+  border-radius: 50%;
+  border: 1px solid #fff;
+}
+
+.occupied.selected {
+  background-color: var(--primary-btn-default-bg) ;
+
+  .occupiedDot {
+    background-color: #fff;
+  }
+}

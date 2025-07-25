@@ -1,0 +1,102 @@
+@use '@/styles/variables' as *;
+
+.calendarGrid {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--background-color-light);
+}
+
+.calendarGridBody {
+  flex: 1;
+  position: relative;
+  background: var(--background-color-light);
+}
+
+.calendarHourRow {
+  display: flex;
+  min-height: var(--calendar-hour-height);
+}
+
+.calendarTimeSlot {
+  width: var(--calendar-time-column-width);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--border-grid-color);
+  background: var(--background-color-light);
+  position: relative;
+}
+
+.calendarTimeLabel {
+  position: absolute;
+  top: 0%;
+  transform: translateY(-50%);
+  font-size: var(--font-size-s);
+  color: var(--text-color-secondary);
+  font-weight: 600;
+  line-height: 1;
+  user-select: none;
+  text-align: center;
+}
+
+.calendarDaySlot {
+  flex: 1;
+  border-top: 1px solid var(--border-grid-color);
+  position: relative;
+  cursor: pointer;
+}
+
+.calendarTimeContent {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  .currentTimeLine {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: var(--current-time-marker-offset, 0%);
+    z-index: 20;
+    pointer-events: none;
+  }
+
+  &:hover {
+    background: var(--today-cell-bg);
+  }
+}
+
+.calendarEventsContainer {
+  position: absolute;
+  left: var(--calendar-time-column-width);
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.calendarEventAbsolute {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--event-top, 0);
+  height: var(--event-height, 2rem);
+}
+
+.calendarNoActiveCalendar,
+.calendarNoEvents {
+  display: flex;
+  min-height: 300px;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  color: var(--text-color-secondary);
+
+  p {
+    font-size: var(--font-size-m);
+    margin-bottom: var(--spacing-m);
+  }
+}

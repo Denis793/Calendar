@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+span,
+button,
+label,
+input,
+select,
+textarea,
+optgroup,
+option,
+div,
+section,
+article,
+aside,
+footer,
+header,
+main,
+nav,
+figure,
+figcaption,
+blockquote,
+details,
+summary {
+  font-family: var(--main-font);
+}

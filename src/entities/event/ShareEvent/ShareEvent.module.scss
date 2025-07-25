@@ -1,0 +1,92 @@
+.shareContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.eventPreview {
+  padding: var(--spacing-sm);
+  background-color: var(--background-color);
+  border-radius: var(--border-radius-sm);
+  position: relative;
+}
+
+.eventTitle {
+  margin: 0 0 var(--spacing-xs) 0;
+  font-size: var(--font-size-m);
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.eventDetails {
+  margin: 0 0 var(--spacing-xs) 0;
+  font-size: var(--font-size-s);
+  color: var(--text-color-secondary);
+}
+
+.eventDescription {
+  margin: 0;
+  font-size: var(--font-size-s);
+  color: var(--text-color-secondary);
+  font-style: italic;
+}
+
+.linkSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.label {
+  font-size: var(--font-size-s);
+  font-weight: 500;
+  color: var(--input-label-color);
+}
+
+.linkContainer {
+  display: flex;
+  gap: var(--spacing-xs);
+  align-items: center;
+}
+
+.linkInput {
+  flex: 3;
+  font-family: monospace;
+  font-size: var(--font-size-base);
+  padding: var(--spacing-xs);
+  border: none;
+}
+
+.copyButton {
+  flex: 1;
+  flex-shrink: 0;
+  min-width: 80px;
+  transition: all var(--transition-fast);
+}
+
+.shareButton {
+  flex: 1;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  transition: all var(--transition-fast);
+
+  &.emailButton {
+    background-color: var(--info-color);
+
+    &:hover {
+      background-color: var(--btn-hover-bg);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-small);
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--border-grid-color);
+}
