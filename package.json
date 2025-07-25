@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc --project tsconfig.build.json && vite build",
+    "dev": "npx vite",
+    "build": "tsc --project tsconfig.build.json && npx vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "nodemon ./server/server.js",
@@ -22,9 +22,9 @@
     "deploy:backend": "cd server && npm install && npm start",
     "check-deployment": "node check-deployment.js",
     "build:full": "npm install && npm run build:prod && cd server && npm install",
-    "build:simple": "vite build",
-    "build:vite-only": "vite build --mode production",
-    "build:prod": "vite build --config vite.config.prod.ts",
+    "build:simple": "npx vite build",
+    "build:vite-only": "npx vite build --mode production",
+    "build:prod": "npx vite build --config vite.config.prod.ts",
     "heroku-postbuild": "npm run build:full",
     "test:fullstack": "node test-fullstack.js"
   },
