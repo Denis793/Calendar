@@ -94,7 +94,7 @@ app.get('/api/health', (req, res) => {
     3: 'disconnecting'
   }[dbStatus] || 'unknown';
 
-  res.status(200).json({
+  const healthData = {
     status: 'OK',
     message: 'Calendar API is running',
     timestamp: new Date().toISOString(),
@@ -103,9 +103,26 @@ app.get('/api/health', (req, res) => {
     database: {
       status: dbStatusText,
       readyState: dbStatus,
-      connected: dbStatus === 1
+      connected: dbStatus === 1,
+      host: mongoose.connection.host || 'not connected',
+      name: mongoose.connection.name || 'not connected'
+    },
+    env: {
+      mongoUriProvided: !!process.env.MONGODB_URI,
+      nodeEnv: process.env.NODE_ENV
     }
-  });
+  };
+
+  // If database is not connected, return 503
+  if (dbStatus !== 1) {
+    return res.status(503).json({
+      ...healthData,
+      status: 'Service Unavailable',
+      message: 'Database is not connected'
+    });
+  }
+
+  res.status(200).json(healthData);
 });
 
 // Debug endpoints

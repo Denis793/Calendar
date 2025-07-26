@@ -4,6 +4,10 @@ import process from 'process';
 export const connectDB = async () => {
   try {
     const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/calendar_app';
+    
+    console.log('🔄 Attempting to connect to MongoDB...');
+    console.log('🔗 URI provided:', mongoURI ? 'Yes' : 'No');
+    console.log('🌍 Environment:', process.env.NODE_ENV || 'development');
 
     const conn = await mongoose.connect(mongoURI, {
       useNewUrlParser: true,
@@ -39,11 +43,14 @@ export const connectDB = async () => {
     });
   } catch (error) {
     console.error('❌ Error connecting to MongoDB:', error.message);
-    console.error('❌ MongoDB URI format:', process.env.MONGODB_URI ? 'URI provided' : 'Using default URI');
+    console.error('❌ Error details:', error);
+    console.error('❌ MongoDB URI provided:', process.env.MONGODB_URI ? 'Yes' : 'No');
     
-    // Don't exit in production, let the app continue
+    // In production, still try to continue without crashing
     if (process.env.NODE_ENV !== 'production') {
       process.exit(1);
+    } else {
+      console.error('🚨 Production mode: continuing without database');
     }
   }
 };
