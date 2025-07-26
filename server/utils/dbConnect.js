@@ -7,6 +7,7 @@ export const connectDB = async () => {
     
     console.log('🔄 Attempting to connect to MongoDB...');
     console.log('🔗 URI provided:', mongoURI ? 'Yes' : 'No');
+    console.log('🔗 URI (masked):', mongoURI.replace(/\/\/[^:]+:[^@]+@/, '//***:***@'));
     console.log('🌍 Environment:', process.env.NODE_ENV || 'development');
 
     const conn = await mongoose.connect(mongoURI, {
@@ -15,7 +16,6 @@ export const connectDB = async () => {
       maxPoolSize: 10, // Maintain up to 10 socket connections
       minPoolSize: 1, // Minimum connections
       maxIdleTimeMS: 30000, // Close connections after 30 seconds
-      serverSelectionRetryCount: 5, // Retry 5 times
     });
 
     console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
