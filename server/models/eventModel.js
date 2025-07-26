@@ -145,7 +145,6 @@ const eventSchema = new mongoose.Schema(
 
 eventSchema.index({ calendarId: 1, date: 1 });
 eventSchema.index({ owner: 1, date: 1 });
-eventSchema.index({ id: 1 }, { unique: true });
 eventSchema.index({ repeatId: 1 });
 eventSchema.index({ date: 1, startTime: 1, endTime: 1 });
 

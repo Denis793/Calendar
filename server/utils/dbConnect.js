@@ -10,14 +10,12 @@ export const connectDB = async () => {
     console.log('🌍 Environment:', process.env.NODE_ENV || 'development');
 
     const conn = await mongoose.connect(mongoURI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
       serverSelectionTimeoutMS: 30000, // 30 seconds
       socketTimeoutMS: 45000, // 45 seconds
       maxPoolSize: 10, // Maintain up to 10 socket connections
+      minPoolSize: 1, // Minimum connections
+      maxIdleTimeMS: 30000, // Close connections after 30 seconds
       serverSelectionRetryCount: 5, // Retry 5 times
-      bufferMaxEntries: 0, // Disable mongoose buffering
-      bufferCommands: false, // Disable mongoose buffering
     });
 
     console.log(`✅ MongoDB Connected: ${conn.connection.host}`);

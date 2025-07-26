@@ -79,7 +79,6 @@ const calendarSchema = new mongoose.Schema(
 );
 
 calendarSchema.index({ owner: 1, isArchived: 1 });
-calendarSchema.index({ id: 1 }, { unique: true });
 calendarSchema.index({ 'sharedWith.user': 1 });
 
 calendarSchema.virtual('events', {
