@@ -9,6 +9,13 @@
   --font-size-xl: 2rem;
   --font-size-xxl: 2.5rem;
 
+  /* Mobile fonts (reduced) */
+  --mobile-font-size-xs: 0.5rem;
+  --mobile-font-size-s: 0.6rem;
+  --mobile-font-size-base: 0.8rem;
+  --mobile-font-size-m: 1rem;
+  --mobile-font-size-l: 1.2rem;
+
   // Text
   --text-color: #333333;
   --text-inactive-color: #ccc;
@@ -54,6 +61,14 @@
   --spacing-md: 1.5rem;
   --spacing-lg: 2rem;
   --spacing-xl: 3rem;
+
+  /* Mobile spacing (reduced) */
+  --mobile-spacing-xxs: 0.2rem;
+  --mobile-spacing-xs: 0.4rem;
+  --mobile-spacing-sm: 0.6rem;
+  --mobile-spacing-md: 0.8rem;
+  --mobile-spacing-lg: 1rem;
+  --mobile-spacing-xl: 1.5rem;
 
   /* Shadows */
   --shadow-small: 0 3px 3px rgba(0, 0, 0, 0.12);

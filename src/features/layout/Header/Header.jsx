@@ -29,7 +29,7 @@ export const Header = () => {
           <div className={styles.headerWrapper}>
             <div className={styles.headerContent}>
               <div className={styles.logo}>
-                <Icon name="logo" size="55" />
+                <Icon className={styles.logoIcon} name="logo" />
                 <p className={styles.logoTitle}>WebCalendar</p>
               </div>
 

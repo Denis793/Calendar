@@ -22,8 +22,34 @@
   justify-content: space-between;
 
   @media (max-width: 768px) {
-    flex-wrap: wrap;
-    gap: var(--spacing-xs);
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+}
+
+.headerContent {
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+}
+
+.logoIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: var(--spacing-xs);
+  transition: transform 0.2s ease-in-out;
+
+  @media (max-width: 768px) {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &:hover {
+    transform: scale(1.1);
   }
 }
 
@@ -56,14 +82,19 @@
 .button {
   padding: var(--spacing-xxs) var(--spacing-sm);
   align-items: center;
+
+  @media (max-width: 768px) {
+    margin: var(--mobile-spacing-sm);
+    font-size: var(--mobile-font-size-base);
+  }
 }
 
 .user {
-  margin-left: var(--spacing-xl);
+  margin: 0 var(--spacing-xl);
   font-size: var(--font-size-s);
 
   @media (max-width: 768px) {
-    margin-left: var(--spacing-sm);
-    font-size: var(--font-size-xs);
+    margin-top: var(--spacing-xs);
+    font-size: var(--mobile-font-size-base);
   }
 }

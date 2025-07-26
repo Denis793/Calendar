@@ -138,6 +138,10 @@
   justify-content: center;
   border-right: 1px solid var(--border-grid-color);
   position: relative;
+
+  @media (max-width: 768px) {
+    font-size: var(--mobile-font-size-xs);
+  }
 }
 
 .timeLabel {

@@ -16,8 +16,8 @@
 
   @media (max-width: 768px) {
     flex-direction: column;
-    margin: var(--spacing-sm) 0;
-    padding: 0 var(--spacing-xs);
+    margin: var(--mobile-spacing-sm) 0;
+    padding: 0;
   }
 }
 

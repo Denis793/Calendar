@@ -9,7 +9,6 @@ interface DropdownProps {
   options?: DropdownOption[];
   selected: string;
   onSelect: (value: string) => void;
-  width?: number;
   label?: string;
   className?: string;
   id?: string;
@@ -25,7 +24,6 @@ export const Dropdown: React.FC<DropdownProps> = ({
   options = DEFAULT_OPTIONS,
   selected,
   onSelect,
-  width = 120,
   label,
   className,
   id,
@@ -66,7 +64,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   return (
     <div className={classNames(styles.wrapper, className)} id={id} data-testid={testId}>
       {label && <label className={styles.label}>{label}</label>}
-      <div className={styles.dropdown} ref={ref} style={{ width }}>
+      <div className={styles.dropdown} ref={ref}>
         <div
           className={classNames(styles.control, { [styles.pressed]: open })}
           tabIndex={0}
