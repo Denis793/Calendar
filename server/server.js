@@ -26,19 +26,21 @@ const PORT = process.env.PORT || 3001;
 connectDB();
 
 // Configure Helmet with proper CSP for production
-app.use(helmet({
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      connectSrc: ["'self'", "'unsafe-inline'"],
-      scriptSrc: ["'self'", "'unsafe-inline'"],
-      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
-      styleElem: ["'self'", "'unsafe-inline'"],
-      fontSrc: ["'self'", "data:", "https://fonts.gstatic.com"],
-      imgSrc: ["'self'", "data:", "https:"],
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        connectSrc: ["'self'", "'unsafe-inline'"],
+        scriptSrc: ["'self'", "'unsafe-inline'"],
+        styleSrc: ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
+        styleElem: ["'self'", "'unsafe-inline'"],
+        fontSrc: ["'self'", 'data:', 'https://fonts.gstatic.com'],
+        imgSrc: ["'self'", 'data:', 'https:'],
+      },
     },
-  },
-}));
+  })
+);
 app.use(compression());
 app.use(morgan('combined'));
 
@@ -73,7 +75,7 @@ app.use('/api', (req, res, next) => {
     return res.status(503).json({
       success: false,
       error: 'Database not available',
-      message: 'Database connection is not ready'
+      message: 'Database connection is not ready',
     });
   }
   next();
@@ -87,12 +89,13 @@ app.use('/api/events', eventRoutes);
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   const dbStatus = mongoose.connection.readyState;
-  const dbStatusText = {
-    0: 'disconnected',
-    1: 'connected',
-    2: 'connecting',
-    3: 'disconnecting'
-  }[dbStatus] || 'unknown';
+  const dbStatusText =
+    {
+      0: 'disconnected',
+      1: 'connected',
+      2: 'connecting',
+      3: 'disconnecting',
+    }[dbStatus] || 'unknown';
 
   const healthData = {
     status: 'OK',
@@ -105,12 +108,12 @@ app.get('/api/health', (req, res) => {
       readyState: dbStatus,
       connected: dbStatus === 1,
       host: mongoose.connection.host || 'not connected',
-      name: mongoose.connection.name || 'not connected'
+      name: mongoose.connection.name || 'not connected',
     },
     env: {
       mongoUriProvided: !!process.env.MONGODB_URI,
-      nodeEnv: process.env.NODE_ENV
-    }
+      nodeEnv: process.env.NODE_ENV,
+    },
   };
 
   // If database is not connected, return 503
@@ -118,7 +121,7 @@ app.get('/api/health', (req, res) => {
     return res.status(503).json({
       ...healthData,
       status: 'Service Unavailable',
-      message: 'Database is not connected'
+      message: 'Database is not connected',
     });
   }
 

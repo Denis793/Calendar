@@ -4,18 +4,18 @@ import process from 'process';
 export const connectDB = async () => {
   try {
     const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/calendar_app';
-    
+
     console.log('🔄 Attempting to connect to MongoDB...');
     console.log('🔗 URI provided:', mongoURI ? 'Yes' : 'No');
     console.log('🔗 URI (masked):', mongoURI.replace(/\/\/[^:]+:[^@]+@/, '//***:***@'));
     console.log('🌍 Environment:', process.env.NODE_ENV || 'development');
 
     const conn = await mongoose.connect(mongoURI, {
-      serverSelectionTimeoutMS: 30000, // 30 seconds
-      socketTimeoutMS: 45000, // 45 seconds
-      maxPoolSize: 10, // Maintain up to 10 socket connections
-      minPoolSize: 1, // Minimum connections
-      maxIdleTimeMS: 30000, // Close connections after 30 seconds
+      serverSelectionTimeoutMS: 30000,
+      socketTimeoutMS: 45000,
+      maxPoolSize: 10,
+      minPoolSize: 1,
+      maxIdleTimeMS: 30000,
     });
 
     console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
@@ -43,7 +43,7 @@ export const connectDB = async () => {
     console.error('❌ Error connecting to MongoDB:', error.message);
     console.error('❌ Error details:', error);
     console.error('❌ MongoDB URI provided:', process.env.MONGODB_URI ? 'Yes' : 'No');
-    
+
     // In production, still try to continue without crashing
     if (process.env.NODE_ENV !== 'production') {
       process.exit(1);
