@@ -1,51 +1,49 @@
 # Calendar App
 
-https://calendar-fxvh.onrender.com
+Live: [https://calendar-fxvh.onrender.com](https://calendar-fxvh.onrender.com)
 
-Календарний додаток з функціями створення подій, перегляду по дням та тижням, drag & drop функціональністю та backend інтеграцією з MongoDB.
+A calendar application with features for creating events, day and week views, drag & drop functionality, and backend integration with MongoDB.
 
-## 🚀 Технології
+## 🚀 Technologies
 
-- **Frontend**: React 19, TypeScript, Vite
-- **State Management**: Zustand
-- **Drag & Drop**: @hello-pangea/dnd
-- **Forms**: Formik + Yup validation
-- **Date Management**: date-fns
-- **Styling**: SCSS Modules
-- **Testing**: Vitest, Testing Library
-- **Backend**: Node.js + Express + MongoDB
+- **Frontend**: React 19, TypeScript, Vite  
+- **State Management**: Zustand  
+- **Drag & Drop**: @hello-pangea/dnd  
+- **Forms**: Formik + Yup validation  
+- **Date Management**: date-fns  
+- **Styling**: SCSS Modules  
+- **Testing**: Vitest, Testing Library  
+- **Backend**: Node.js + Express + MongoDB  
 
-## 📁 Структура проєкту
+## 📁 Project Structure
 
 ```txt
 calendar/
 ├── src/
-│   ├── entities/                   # Бізнес-сутності
-│   │   ├── calendar/              # Календарі
-│   │   │   ├── CalendarEditor/    # Редактор календаря
-│   │   │   ├── CalendarList/      # Список календарів
-│   │   │   └── calendarStore.js   # Zustand store для календарів
-│   │   ├── date/                  # Сутність дати
-│   │   └── event/                 # Події
-│   │       ├── EventEditor/       # Редактор подій
-│   │       ├── EventList/         # Список подій
-│   │       ├── ShareEvent/        # Поділ події
-│   │       ├── ImportSharedEvent/ # Імпорт поділеної події
-│   │       ├── eventStore.js      # Zustand store для подій
+│   ├── entities/
+│   │   ├── calendar/
+│   │   │   ├── CalendarEditor/
+│   │   │   ├── CalendarList/
+│   │   │   └── calendarStore.js
+│   │   ├── date/
+│   │   └── event/
+│   │       ├── EventEditor/
+│   │       ├── EventList/
+│   │       ├── ShareEvent/
+│   │       ├── ImportSharedEvent/
+│   │       ├── eventStore.js
 │   │       └── index.js
-│   │
-│   ├── features/                  # Функціональні компоненти
-│   │   ├── dayView/              # Перегляд по дням
-│   │   ├── weekView/             # Перегляд по тижням
-│   │   ├── dragDrop/             # Drag & Drop функціональність
-│   │   ├── eventForm/            # Форма створення/редагування події
-│   │   └── layout/               # Компоненти макету
-│   │
-│   ├── shared/                   # Спільні компоненти та утиліти
-│   │   ├── api/                  # API інтеграція
-│   │   ├── config/               # Конфігурація
-│   │   ├── hooks/                # Кастомні хуки
-│   │   └── ui/                   # UI компоненти
+│   ├── features/
+│   │   ├── dayView/
+│   │   ├── weekView/
+│   │   ├── dragDrop/
+│   │   ├── eventForm/
+│   │   └── layout/
+│   ├── shared/
+│   │   ├── api/
+│   │   ├── config/
+│   │   ├── hooks/
+│   │   └── ui/
 │   │       ├── Button/
 │   │       ├── CalendarEvent/
 │   │       ├── Checkbox/
@@ -60,118 +58,107 @@ calendar/
 │   │       ├── SelectMenu/
 │   │       ├── Textarea/
 │   │       └── Toast/
-│   │
-│   ├── widgets/                  # Складні віджети
-│   │   ├── CalendarSidebar/      # Бічна панель календаря
-│   │   └── CurrentTimeMarker/    # Маркер поточного часу
-│   │
-│   ├── icons/                    # SVG іконки
-│   ├── styles/                   # Глобальні стилі
-│   ├── types/                    # TypeScript типи
-│   ├── utils/                    # Утилітарні функції
-│   │
-│   ├── App.tsx                   # Головний компонент
-│   ├── App.test.tsx             # Тести App компонента
-│   ├── main.tsx                 # Точка входу
-│   └── setupTests.ts            # Налаштування тестів
-│
-├── server/                       # Node.js Backend
-│   ├── controllers/              # API контролери
-│   │   ├── authController.js     # Контролер авторизації
-│   │   ├── calendarController.js # Контролер календарів
-│   │   └── eventController.js    # Контролер подій
-│   ├── middleware/               # Middleware функції
-│   │   └── auth.js              # Авторизаційний middleware
-│   ├── models/                   # MongoDB моделі
-│   │   ├── calendarModel.js     # Модель календаря
-│   │   ├── eventModel.js        # Модель події
-│   │   └── userModel.js         # Модель користувача
-│   ├── routes/                   # API маршрути
-│   │   ├── authRoutes.js        # Маршрути авторизації
-│   │   ├── calendarRoutes.js    # Маршрути календарів
-│   │   └── eventRoutes.js       # Маршрути подій
-│   ├── scripts/                  # Скрипти
-│   │   └── initDb.js            # Ініціалізація БД
-│   ├── utils/                    # Утилітарні функції
-│   │   ├── dbConnect.js         # Підключення до БД
-│   │   └── errorHandler.js      # Обробка помилок
-│   ├── package.json             # Залежності серверу
-│   └── server.js                # Головний файл серверу
-│
-├── assets/                       # Статичні ресурси
+│   ├── widgets/
+│   │   ├── CalendarSidebar/
+│   │   └── CurrentTimeMarker/
+│   ├── icons/
+│   ├── styles/
+│   ├── types/
+│   ├── utils/
+│   ├── App.tsx
+│   ├── App.test.tsx
+│   ├── main.tsx
+│   └── setupTests.ts
+├── server/
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   ├── calendarController.js
+│   │   └── eventController.js
+│   ├── middleware/
+│   │   └── auth.js
+│   ├── models/
+│   │   ├── calendarModel.js
+│   │   ├── eventModel.js
+│   │   └── userModel.js
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   ├── calendarRoutes.js
+│   │   └── eventRoutes.js
+│   ├── scripts/
+│   │   └── initDb.js
+│   ├── utils/
+│   │   ├── dbConnect.js
+│   │   └── errorHandler.js
+│   ├── package.json
+│   └── server.js
+├── assets/
 │   └── favicon.ico
-├── package.json                  # Залежності проєкту
-├── vite.config.ts               # Конфігурація Vite
-├── vitest.config.ts             # Конфігурація тестів
-├── tsconfig.json                # Конфігурація TypeScript
-├── eslint.config.js             # Конфігурація ESLint
-├── index.html                   # HTML шаблон
-├── README.md                    # Документація
-└── README_SERVER.md             # Документація серверу
+├── package.json
+├── vite.config.ts
+├── vitest.config.ts
+├── tsconfig.json
+├── eslint.config.js
+├── index.html
+├── README.md
+└── README_SERVER.md
 ```
 
-## 🛠️ Розробка
-
-### Встановлення залежностей
-
-```bash
-# Фронтенд
+# Frontend
 npm install
 
 # Backend
 cd server
 npm install
 cd ..
-```
 
-### Запуск проєкту
-
-```bash
-# Тільки фронтенд
+# Frontend only
 npm run dev
 
-# Тільки backend
+# Backend only
 npm run server
 
-# Фронтенд + Backend разом
+# Frontend + Backend together
 npm run dev:full
-```
 
-### Тестування
+npm run test             # Run tests
+npm run test:ui         # Launch UI testing mode
+npm run test:coverage   # View test coverage
+npm run typecheck       # TypeScript type checking
 
-```bash
-npm run test              # Запуск тестів
-npm run test:ui          # UI для тестів
-npm run test:coverage    # Покриття тестами
-npm run typecheck        # Перевірка TypeScript
-```
+npm run lint            # Lint the code
+npm run build           # Build for production
+npm run preview         # Preview the production build
 
-### Лінтинг та збірка
+📋 Features
+✅ Create, edit, delete calendars
 
-```bash
-npm run lint             # Перевірка коду
-npm run build            # Збірка для продакшену
-npm run preview          # Попередній перегляд збірки
-```
+✅ Create, edit, delete events
 
-## 📋 Функціональність
+✅ Drag & drop events
 
-- ✅ Створення, редагування, видалення календарів
-- ✅ Створення, редагування, видалення подій
-- ✅ Перетягування подій (drag & drop)
-- ✅ Перегляд по дням та тижням
-- ✅ Кольорове кодування календарів
-- ✅ Поділ подій з іншими користувачами
-- ✅ Імпорт поділених подій
-- ✅ Responsive дизайн
-- ✅ Автоматична синхронізація з сервером
-- ✅ Offline-first підхід
+✅ Day and week views
 
-## 🔧 Архітектурні принципи
+✅ Calendar color tagging
 
-- **Feature-Sliced Design** - модульна архітектура
-- **Separation of Concerns** - розділення відповідальностей
-- **Component-Based Architecture** - компонентний підхід
-- **TypeScript** - типізація для надійності
-- **SCSS Modules** - ізольовані стилі
-- **Zustand** - простий state management
+✅ Share events with other users
+
+✅ Import shared events
+
+✅ Responsive design
+
+✅ Real-time sync with backend
+
+✅ Offline-first approach
+
+🔧 Architectural Principles
+Feature-Sliced Design – modular architecture
+
+Separation of Concerns – clean code structure
+
+Component-Based Architecture – reusable components
+
+TypeScript – static typing for safety
+
+SCSS Modules – scoped styling
+
+Zustand – simple state management
