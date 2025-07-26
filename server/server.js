@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import compression from 'compression';
 import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import process from 'process';
@@ -31,9 +32,10 @@ app.use(helmet({
       defaultSrc: ["'self'"],
       connectSrc: ["'self'", "'unsafe-inline'"],
       scriptSrc: ["'self'", "'unsafe-inline'"],
-      styleSrc: ["'self'", "'unsafe-inline'"],
+      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+      styleElem: ["'self'", "'unsafe-inline'"],
+      fontSrc: ["'self'", "data:", "https://fonts.gstatic.com"],
       imgSrc: ["'self'", "data:", "https:"],
-      fontSrc: ["'self'", "data:"],
     },
   },
 }));
@@ -64,6 +66,19 @@ app.use(
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
+// Database connection check middleware
+app.use('/api', (req, res, next) => {
+  if (mongoose.connection.readyState !== 1) {
+    console.warn('⚠️ Database not connected, readyState:', mongoose.connection.readyState);
+    return res.status(503).json({
+      success: false,
+      error: 'Database not available',
+      message: 'Database connection is not ready'
+    });
+  }
+  next();
+});
+
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/calendars', calendarRoutes);
@@ -71,12 +86,25 @@ app.use('/api/events', eventRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
+  const dbStatus = mongoose.connection.readyState;
+  const dbStatusText = {
+    0: 'disconnected',
+    1: 'connected',
+    2: 'connecting',
+    3: 'disconnecting'
+  }[dbStatus] || 'unknown';
+
   res.status(200).json({
     status: 'OK',
     message: 'Calendar API is running',
     timestamp: new Date().toISOString(),
     environment: process.env.NODE_ENV || 'development',
     port: PORT,
+    database: {
+      status: dbStatusText,
+      readyState: dbStatus,
+      connected: dbStatus === 1
+    }
   });
 });
 
