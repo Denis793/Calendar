@@ -5,6 +5,10 @@
   display: flex;
   flex-direction: column;
   background: var(--background-color-light);
+  
+  @media (max-width: 768px) {
+    font-size: var(--font-size-s);
+  }
 }
 
 .calendarGridBody {
@@ -16,6 +20,10 @@
 .calendarHourRow {
   display: flex;
   min-height: var(--calendar-hour-height);
+  
+  @media (max-width: 768px) {
+    min-height: 40px;
+  }
 }
 
 .calendarTimeSlot {
@@ -26,6 +34,10 @@
   border-right: 1px solid var(--border-grid-color);
   background: var(--background-color-light);
   position: relative;
+  
+  @media (max-width: 768px) {
+    width: 60px;
+  }
 }
 
 .calendarTimeLabel {
@@ -38,6 +50,10 @@
   line-height: 1;
   user-select: none;
   text-align: center;
+  
+  @media (max-width: 768px) {
+    font-size: var(--font-size-xs);
+  }
 }
 
 .calendarDaySlot {
