@@ -14,7 +14,7 @@
   box-shadow: var(--shadow-button);
   position: relative;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-  
+
   @media (max-width: 768px) {
     padding: var(--spacing-xs) var(--spacing-sm);
     margin: var(--spacing-xs);

@@ -6,7 +6,7 @@
   flex-direction: column;
   overflow: hidden;
   background-color: var(--background-color-light);
-  
+
   @media (max-width: 768px) {
     font-size: var(--font-size-s);
   }
@@ -30,7 +30,7 @@
   position: sticky;
   z-index: 100;
   top: 0;
-  
+
   @media (max-width: 768px) {
     grid-template-columns: 60px repeat(7, 1fr);
     font-size: var(--font-size-xs);
@@ -51,7 +51,7 @@
   background: var(--background-color-light);
   transition: all 0.3s ease;
   min-height: 5rem;
-  
+
   @media (max-width: 768px) {
     min-height: 3rem;
     padding: var(--spacing-xxs);
@@ -74,7 +74,7 @@
   letter-spacing: 0.5px;
   font-weight: 500;
   line-height: 1;
-  
+
   @media (max-width: 768px) {
     font-size: var(--font-size-xs);
     margin-bottom: 1px;
@@ -96,7 +96,7 @@
   justify-content: center;
   transition: all 0.3s ease;
   background-color: transparent;
-  
+
   @media (max-width: 768px) {
     font-size: var(--font-size-xs);
     width: 1.8rem;
@@ -125,7 +125,7 @@
   min-height: var(--calendar-hour-height);
   position: relative;
   transition: all 0.2s ease;
-  
+
   @media (max-width: 768px) {
     grid-template-columns: 60px repeat(7, 1fr);
     min-height: 40px;
@@ -150,7 +150,7 @@
   line-height: 1;
   user-select: none;
   text-align: center;
-  
+
   @media (max-width: 768px) {
     font-size: var(--font-size-xs);
   }

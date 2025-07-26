@@ -4,7 +4,7 @@
   background: var(--background-color);
   min-height: 100vh;
   height: 100%;
-  
+
   @media (max-width: 768px) {
     overflow-x: hidden;
   }
@@ -13,7 +13,7 @@
 .mainContent {
   display: flex;
   margin: var(--content-padding-x) 0;
-  
+
   @media (max-width: 768px) {
     flex-direction: column;
     margin: var(--spacing-sm) 0;

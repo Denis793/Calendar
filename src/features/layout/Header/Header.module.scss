@@ -4,7 +4,7 @@
   background: var(--background-color-light);
   box-shadow: var(--shadow-medium);
   padding: var(--spacing-sm);
-  
+
   @media (max-width: 768px) {
     padding: var(--spacing-xs);
   }
@@ -20,7 +20,7 @@
 
 .headerWrapper {
   justify-content: space-between;
-  
+
   @media (max-width: 768px) {
     flex-wrap: wrap;
     gap: var(--spacing-xs);
@@ -31,7 +31,7 @@
   font-size: var(--font-size-m);
   font-weight: 600;
   margin: 0;
-  
+
   @media (max-width: 768px) {
     font-size: var(--font-size-base);
   }
@@ -46,7 +46,7 @@
   padding: var(--spacing-sm);
   font-size: var(--font-size-m);
   font-weight: 700;
-  
+
   @media (max-width: 768px) {
     padding: var(--spacing-xs);
     font-size: var(--font-size-base);
@@ -61,7 +61,7 @@
 .user {
   margin-left: var(--spacing-xl);
   font-size: var(--font-size-s);
-  
+
   @media (max-width: 768px) {
     margin-left: var(--spacing-sm);
     font-size: var(--font-size-xs);

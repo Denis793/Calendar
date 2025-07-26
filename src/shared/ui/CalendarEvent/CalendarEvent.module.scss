@@ -32,13 +32,13 @@
     transform: translateY(0) scale(1);
     transition: all 0.1s ease;
   }
-  
+
   @media (max-width: 768px) {
     font-size: var(--font-size-xs);
     padding: var(--spacing-xxs);
     min-height: 2rem;
     border-left-width: 4px;
-    
+
     &:hover {
       transform: none;
       filter: none;
@@ -62,7 +62,7 @@
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   line-height: 1.2;
   font-weight: 500;
-  
+
   @media (max-width: 768px) {
     font-size: var(--font-size-xs);
     margin-bottom: 1px;

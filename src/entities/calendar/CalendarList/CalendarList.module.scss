@@ -3,7 +3,7 @@
   margin: 1rem 0;
   border-radius: var(--border-radius-md);
   padding: var(--spacing-sm);
-  
+
   @media (max-width: 768px) {
     margin: var(--spacing-xs) 0;
     padding: var(--spacing-xs);
@@ -22,12 +22,12 @@
     font-size: var(--font-size-m);
     color: var(--text-color);
     font-weight: 600;
-    
+
     @media (max-width: 768px) {
       font-size: var(--font-size-base);
     }
   }
-  
+
   @media (max-width: 768px) {
     margin-bottom: var(--spacing-xs);
     padding-bottom: var(--spacing-xs);
