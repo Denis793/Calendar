@@ -32,13 +32,19 @@
   top: 0;
 
   @media (max-width: 768px) {
-    grid-template-columns: 60px repeat(7, 1fr);
+    grid-template-columns: var(--calendar-time-column-width-mobile) repeat(7, 1fr);
     font-size: var(--font-size-xs);
   }
 }
 
 .timeColumn {
   border-right: 1px solid var(--border-grid-color);
+
+  @media (max-width: 768px) {
+    width: var(--calendar-time-column-width-mobile);
+    min-width: var(--calendar-time-column-width-mobile);
+    max-width: var(--calendar-time-column-width-mobile);
+  }
 }
 
 .dayHeader {
@@ -127,11 +133,10 @@
   transition: all 0.2s ease;
 
   @media (max-width: 768px) {
-    grid-template-columns: 60px repeat(7, 1fr);
+    grid-template-columns: var(--calendar-time-column-width-mobile) repeat(7, 1fr);
     min-height: 40px;
   }
 }
-
 .timeSlot {
   display: flex;
   align-items: flex-start;
@@ -140,7 +145,10 @@
   position: relative;
 
   @media (max-width: 768px) {
-    font-size: var(--mobile-font-size-xs);
+    width: var(--calendar-time-column-width-mobile);
+    min-width: var(--calendar-time-column-width-mobile);
+    max-width: var(--calendar-time-column-width-mobile);
+    padding: var(--mobile-spacing-xxs);
   }
 }
 
@@ -156,7 +164,11 @@
   text-align: center;
 
   @media (max-width: 768px) {
-    font-size: var(--font-size-xs);
+    font-size: var(--mobile-font-size-xs);
+    font-weight: 500;
+    padding: var(--mobile-spacing-xxs);
+    white-space: nowrap;
+    overflow: hidden;
   }
 }
 
