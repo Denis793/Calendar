@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://calendar-blue-seven.vercel.app/" target="_blank">
-    <img src="https://github.com/Denis793/Calendar/blob/main/src/img/screeens/Screenshot-1-Calendar.png" alt="View Project">
+    <img src="https://img.shields.io/badge/View%20Project-Click%20Here-blue?style=for-the-badge" alt="View Project">
   </a>
 </p>
 
@@ -11,7 +11,7 @@
 ## 🖼️ Screenshot
 
 <div align="center">
-  <img src="https://github.com/Denis793/Store/blob/main/src/img/screens/Screenshot-1-Store.png" alt="View click" height="auto" width="100%">
+  <img src="https://github.com/Denis793/Calendar/blob/main/src/img/screeens/Screenshot-1-Calendar.png" alt="View click" height="auto" width="100%">
 </div>
 
 ---
