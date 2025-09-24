@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://calendar-blue-seven.vercel.app/" target="_blank">
-    <img src="https://img.shields.io/badge/View%20Project-Click%20Here-blue?style=for-the-badge" alt="View Project">
+    <img src="https://github.com/Denis793/Calendar/blob/main/src/img/screeens/Screenshot-1-Calendar.png" alt="View Project">
   </a>
 </p>
 
