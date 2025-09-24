@@ -17,15 +17,11 @@
   color: var(--text-color);
 }
 
-.dropdownDescription {
-  width: 15rem;
-}
-
 .control {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: fit-content;
+  width: 10rem;
   padding: 8px 12px;
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius-sm);

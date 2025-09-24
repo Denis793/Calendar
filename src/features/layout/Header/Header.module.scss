@@ -30,9 +30,9 @@
 
 .headerContent {
   @media (max-width: 768px) {
-    width: 100%;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     gap: 0;
   }
 }
@@ -61,6 +61,10 @@
   @media (max-width: 768px) {
     font-size: var(--font-size-base);
   }
+}
+
+.headerNav {
+  display: flex;
 }
 
 .date {
@@ -94,7 +98,6 @@
   font-size: var(--font-size-s);
 
   @media (max-width: 768px) {
-    margin-top: var(--spacing-xs);
-    font-size: var(--mobile-font-size-base);
+    font-size: var(--mobile-font-size-m);
   }
 }

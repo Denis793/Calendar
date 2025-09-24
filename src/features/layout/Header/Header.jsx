@@ -33,18 +33,19 @@ export const Header = () => {
                 <p className={styles.logoTitle}>WebCalendar</p>
               </div>
 
-              <Button onClick={goToToday}>Today</Button>
+              <div className={styles.headerNav}>
+                <div className={styles.date}>
+                  <Button className={styles.button} onClick={goToPrev} variant="secondary">
+                    <Icon name="arrowLeft" />
+                  </Button>
 
-              <div className={styles.date}>
-                <Button className={styles.button} onClick={goToPrev} variant="secondary">
-                  <Icon name="arrowLeft" />
-                </Button>
+                  <Button className={styles.button} onClick={goToNext} variant="secondary">
+                    <Icon name="arrowRight" />
+                  </Button>
 
-                <Button className={styles.button} onClick={goToNext} variant="secondary">
-                  <Icon name="arrowRight" />
-                </Button>
-
-                <span className={styles.currentDate}>{displayDate}</span>
+                  <span className={styles.currentDate}>{displayDate}</span>
+                </div>
+                <Button onClick={goToToday}>Today</Button>
               </div>
             </div>
 
@@ -55,10 +56,12 @@ export const Header = () => {
                 onSelect={handleViewChange}
                 options={viewModeOptions}
               />
-              <p className={styles.user}>Username</p>
-            </div>
 
-            <AuthProvider />
+              <div className={styles.auth}>
+                <AuthProvider />
+                <p className={styles.user}></p>
+              </div>
+            </div>
           </div>
         </div>
       </header>
